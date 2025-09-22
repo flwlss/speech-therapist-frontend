@@ -31,7 +31,7 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="space-y-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
+      <div className="space-y-3 lg:grid lg:grid-cols-2 lg:gap-10 lg:space-y-0">
         {mockPersonFeatures.map((item) => (
           <article key={item.id}>
             <div className="flex space-x-1.5">
