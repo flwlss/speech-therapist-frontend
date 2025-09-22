@@ -1,9 +1,11 @@
+"use client";
+
 import { mockPersonFeatures } from "@/common/mock";
 import Image from "next/image";
 
 export default function About() {
   return (
-    <section className="space-y-5">
+    <section className="space-y-5 lg:space-y-10">
       <div className="flex flex-col items-center space-y-3 lg:flex-row lg:space-y-0">
         <Image
           width={300}
@@ -14,7 +16,7 @@ export default function About() {
           priority
         />
         <div className="space-y-3">
-          <h1 className="text-center text-2xl whitespace-pre lg:text-left lg:text-3xl xl:text-4xl">
+          <h1 className="text-center text-2xl/tight whitespace-pre lg:text-left lg:text-3xl xl:text-4xl">
             {/* добавить автоматический подсчет */}
             {`Логопед-дефектолог\nсо стажем более 1 года`}
           </h1>
@@ -40,7 +42,7 @@ export default function About() {
                 height={25}
                 alt="icon"
               />
-              <h2 className="text-xl mb-1 xl:text-2xl">{item.title}</h2>
+              <h3 className="text-xl mb-1 xl:text-2xl">{item.title}</h3>
             </div>
             <ul className="text-xs list-disc ml-4 font-light md:text-sm xl:text-lg xl:ml-5">
               {item.features.map((feat) => (

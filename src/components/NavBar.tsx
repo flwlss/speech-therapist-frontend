@@ -9,6 +9,7 @@ export default function Navbar() {
 
   const navItems = [
     { id: "about", name: "Обо мне" },
+    { id: "skills", name: "С чем помогу" },
     { id: "services", name: "Услуги и цены" },
     { id: "contact", name: "Контакты" },
   ];
@@ -42,7 +43,7 @@ export default function Navbar() {
               return (
                 <li
                   className={
-                    "py-2 border-b border-gray-500 last:border-none lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                    "py-2 border-b border-blue-700 last:border-none lg:border-0 lg:hover:text-blue-700 lg:p-0"
                   }
                   key={item.id}
                 >

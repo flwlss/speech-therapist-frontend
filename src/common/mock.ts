@@ -1,13 +1,5 @@
-type PersonFeatures = {
-  id: number;
-  icon: string;
-  title: string;
-  features: {
-    id: number;
-    year?: number;
-    item: string;
-  }[];
-};
+import { PersonFeatures } from "@/types/personFeatures";
+import { Skills } from "@/types/skills";
 
 export const mockPersonFeatures: PersonFeatures[] = [
   {
@@ -71,5 +63,44 @@ export const mockPersonFeatures: PersonFeatures[] = [
         item: "Работаю в «Врачебная практика»",
       },
     ],
+  },
+];
+
+export const mockSkills: Skills[] = [
+  {
+    id: 1,
+    title: "Исследования особенностей",
+    description:
+      "Проведение гибкого и всестороннего исследования особенностей развития ребенка",
+  },
+  {
+    id: 2,
+    title: "Помощь детям в развитии внимания",
+    description:
+      "Оказание помощи детям в развитии внимания, мышления и других основных психических процессов",
+  },
+  {
+    id: 3,
+    title: "Формирование четкого произношения",
+    description:
+      "Развитие навыков общения и разговорной деятельности, формирование четкого произношения",
+  },
+  {
+    id: 4,
+    title: "Проведение интенсивных занятий",
+    description:
+      "Проведение интенсивных занятий, которые устраняют проблемы сенсорики",
+  },
+  {
+    id: 5,
+    title: "Консультирование родителей",
+    description:
+      "Консультирование родителей и их обучение приемам и навыкам воспитания ребенка с особенностями развития",
+  },
+  {
+    id: 6,
+    title: "Помощь в социализации",
+    description:
+      "Оказание помощи ребенку в социализации, понимании и принятии себя",
   },
 ];
