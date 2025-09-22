@@ -10,8 +10,8 @@ export default function Home() {
       <main className="px-5 pt-[61px]">
         <div className="container mx-auto">
           <About />
-          <Services />
-          <Contants />
+          {/* <Services /> */}
+          {/* <Contants /> */}
         </div>
       </main>
     </>
