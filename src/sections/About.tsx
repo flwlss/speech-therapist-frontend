@@ -11,13 +11,14 @@ export default function About() {
           height={300}
           src={"/sofia.jpg"}
           alt="Photo of a speech therapist"
+          priority
         />
         <div className="space-y-3">
           <h1 className="text-center text-2xl whitespace-pre lg:text-left lg:text-3xl xl:text-4xl">
             {/* добавить автоматический подсчет */}
             {`Логопед-дефектолог\nсо стажем более 1 года`}
           </h1>
-          <p className="lg:text-lg xl:text-xl">
+          <p className="font-light lg:text-lg xl:text-xl">
             Я — <strong>Нестерчук София</strong>, провожу работу с детьми,
             страдающими от задержек речевого развития, болезней центральной
             нервной системы. Lorem ipsum, dolor sit amet consectetur adipisicing
@@ -30,7 +31,7 @@ export default function About() {
       </div>
       <div className="space-y-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
         {mockPersonFeatures.map((item) => (
-          <div key={item.id}>
+          <article key={item.id}>
             <div className="flex space-x-1.5">
               <Image
                 src={item.icon}
@@ -41,17 +42,15 @@ export default function About() {
               />
               <h2 className="text-xl mb-1 xl:text-2xl">{item.title}</h2>
             </div>
-            <div>
-              <ul className="text-xs list-disc ml-4 md:text-sm xl:text-lg xl:ml-5">
-                {item.features.map((feat) => (
-                  <li key={feat.id}>
-                    {feat.year && <b>{feat.year}&nbsp;</b>}
-                    {feat.item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+            <ul className="text-xs list-disc ml-4 font-light md:text-sm xl:text-lg xl:ml-5">
+              {item.features.map((feat) => (
+                <li key={feat.id}>
+                  {feat.year && <b>{feat.year}&nbsp;</b>}
+                  {feat.item}
+                </li>
+              ))}
+            </ul>
+          </article>
         ))}
       </div>
     </section>
