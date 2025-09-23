@@ -1,6 +1,7 @@
 "use client";
 
 import { mockContacts } from "@/common/mock";
+import Map from "@/components/Map";
 import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 import Link from "next/link";
@@ -57,9 +58,7 @@ export default function Contaсts() {
             </div>
           ))}
         </div>
-        <div className="w-full h-full border border-blue-700 rounded-3xl min-h-[300px] flex items-center justify-center">
-          Карта
-        </div>
+        <Map />
       </div>
     </section>
   );
