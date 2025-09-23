@@ -1,4 +1,4 @@
-export type Services = {
+export type Service = {
   id: number;
   title: string;
   price: number;

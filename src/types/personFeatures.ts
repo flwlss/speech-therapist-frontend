@@ -1,11 +1,11 @@
-export type PersonFeatures = {
+export type PersonFeature = {
   id: number;
   icon: string;
   title: string;
-  features: PersonFeature[];
+  features: Feature[];
 };
 
-type PersonFeature = {
+type Feature = {
   id: number;
   year?: number;
   item: string;
