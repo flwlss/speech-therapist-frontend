@@ -3,9 +3,9 @@
 import { mockServices } from "@/common/mock";
 import SectionTitle from "@/components/SectionTitle";
 
-export default function Services() {
+const Services = () => {
   return (
-    <section>
+    <section id="services">
       <SectionTitle title="Услуги и цены" />
       <div className="space-y-5 lg:grid lg:grid-cols-2 lg:gap-10 lg:space-y-0">
         {mockServices.map((service) => (
@@ -22,4 +22,6 @@ export default function Services() {
       </div>
     </section>
   );
-}
+};
+
+export default Services;
