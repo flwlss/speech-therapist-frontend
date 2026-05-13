@@ -28,3 +28,16 @@ body {
   color: var(--foreground);
   font-family: var(--font-roboto), Arial, Helvetica, sans-serif;
 }
+
+.swiper-pagination {
+  position: relative !important;
+  bottom: 0 !important;
+  margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}

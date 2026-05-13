@@ -11,7 +11,7 @@ const Services = () => {
         {mockServices.map((service) => (
           <div key={service.id} className="space-y-1.5">
             <div className="flex justify-between border-b border-b-blue-700 text-lg lg:text-xl xl:text-2xl">
-              <h3 className="pb-1.5">{service.title}</h3>
+              <h3 className="pb-1.5 leading-tight">{service.title}</h3>
               <span>{service.price}&nbsp;₽</span>
             </div>
             <p className="text-sm font-light lg:text-lg xl:text-xl">

@@ -64,7 +64,7 @@ const Navbar = () => {
               return (
                 <li
                   className={
-                    "py-2 border-b border-blue-700 hover:text-blue-700 last:border-none lg:border-0 lg:p-0"
+                    "py-2 border-b border-blue-700 last:border-none lg:border-0 lg:hover:text-blue-700 lg:p-0"
                   }
                   key={item.id}
                 >

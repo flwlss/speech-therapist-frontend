@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import { mockRewiews } from "@/common/mock";
 import RewiewSlide from "@/components/RewiewSlide";
 
-export default function Rewiews() {
+const Rewiews = () => {
   return (
     <section>
       <SectionTitle title="Отзывы" />
@@ -20,9 +20,9 @@ export default function Rewiews() {
           dynamicBullets: true,
           clickable: true,
         }}
+        simulateTouch={false}
         style={{ "--swiper-navigation-size": "24px" } as React.CSSProperties}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
       >
         {mockRewiews.map((rewiew) => (
           <SwiperSlide key={rewiew.id}>
@@ -32,4 +32,6 @@ export default function Rewiews() {
       </Swiper>
     </section>
   );
-}
+};
+
+export default Rewiews;
