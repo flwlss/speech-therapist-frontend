@@ -1,8 +1,12 @@
-import { Contact } from "@/types/Contacts";
-import { Education, Experience, Qualification } from "@/types/personFeatures";
-import { Rewiew } from "@/types/Rewiews";
-import { Service } from "@/types/services";
-import { Skill } from "@/types/skills";
+import type { Contact } from "@/types/Contacts";
+import type {
+  Education,
+  Experience,
+  Qualification,
+} from "@/types/personFeatures";
+import type { Rewiew } from "@/types/Rewiews";
+import type { Service } from "@/types/services";
+import type { Skill } from "@/types/skills";
 
 export const education: Education[] = [
   {
