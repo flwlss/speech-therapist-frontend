@@ -1,12 +1,21 @@
-export type PersonFeature = {
+export type Education = {
   id: number;
-  icon: string;
-  title: string;
-  features: Feature[];
+  universityName: string;
+  year: string;
+  faculty: string;
+  degree: string;
 };
 
-type Feature = {
+export type Experience = {
   id: number;
-  year?: number;
-  item: string;
+  workName: string;
+  year: string;
+  post: string;
+};
+
+export type Qualification = {
+  id: number;
+  placeName: string;
+  year: string;
+  post: string;
 };

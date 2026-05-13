@@ -1,71 +1,66 @@
 import { Contact } from "@/types/Contacts";
-import { PersonFeature } from "@/types/personFeatures";
+import { Education, Experience, Qualification } from "@/types/personFeatures";
 import { Rewiew } from "@/types/Rewiews";
 import { Service } from "@/types/services";
 import { Skill } from "@/types/skills";
 
-export const mockPersonFeatures: PersonFeature[] = [
+export const education: Education[] = [
   {
     id: 1,
-    icon: "/education.svg",
-    title: "Образование",
-    features: [
-      {
-        id: 1,
-        year: 2025,
-        item: "Повышение квалификации «Медицинская логопедия», Новосибирский государственный медицинский университет",
-      },
-      {
-        id: 2,
-        year: 2024,
-        item: "Новосибирский государственный педагогический университет, ВУЗ по специальности «Дефектологическое образование»",
-      },
-    ],
+    universityName: "Новосибирский государственный педагогический университет",
+    year: "2020",
+    faculty: "Специальное (дефектологическое) образование",
+    degree: "Базовое образование",
   },
   {
     id: 2,
-    icon: "/experience.svg",
-    title: "Опыт",
-    features: [
-      {
-        id: 3,
-        item: "Работаю в Медицинский центр «Ментал» (ранее «Ментал Консалтинг»)",
-      },
-      {
-        id: 4,
-        item: "Работаю в «Врачебная практика»",
-      },
-    ],
+    universityName: "Новосибирский государственный медицинский университет",
+    year: "2024",
+    faculty: "Медицинская логопедия",
+    degree: "Циклы переподготовки",
   },
   {
     id: 3,
-    icon: "/experience.svg",
-    title: "Опыт",
-    features: [
-      {
-        id: 5,
-        item: "Работаю в Медицинский центр «Ментал» (ранее «Ментал Консалтинг»)",
-      },
-      {
-        id: 6,
-        item: "Работаю в «Врачебная практика»",
-      },
-    ],
+    universityName: "Новосибирский государственный педагогический университет",
+    year: "2026",
+    faculty: "Специальное (дефектологическое) образование",
+    degree: "Магистратура",
+  },
+];
+
+export const experience: Experience[] = [
+  {
+    id: 1,
+    workName: "Медицинский центр «Ментал» (ранее «Ментал Консалтинг»)",
+    year: "2025",
+    post: "Логопед",
   },
   {
-    id: 4,
-    icon: "/experience.svg",
-    title: "Опыт",
-    features: [
-      {
-        id: 7,
-        item: "Работаю в Медицинский центр «Ментал» (ранее «Ментал Консалтинг»)",
-      },
-      {
-        id: 8,
-        item: "Работаю в «Врачебная практика»",
-      },
-    ],
+    id: 2,
+    workName: "Врачебная практика",
+    year: "2025",
+    post: "Логопед",
+  },
+  {
+    id: 3,
+    workName: "Городская больница №2",
+    year: "2025 — н. в.",
+    post: "Медицинский логопед",
+  },
+];
+
+export const qualification: Qualification[] = [
+  {
+    id: 1,
+    placeName: 'Центр "Кругозор"',
+    year: "2025",
+    post: "Курс логопедического массажа",
+  },
+  {
+    id: 2,
+    placeName: "Алтайский государственный медицинский университет",
+    year: "2026",
+    post: "Первичная специализированная аккредитация (Медицинский логопед)",
   },
 ];
 
