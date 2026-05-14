@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { id: "about", name: "Обо мне" },
   { id: "skills", name: "С чем помогу" },
   { id: "services", name: "Услуги и цены" },
-  { id: "contact", name: "Контакты" },
+  { id: "contacts", name: "Контакты" },
 ];
 
 const Navbar = () => {

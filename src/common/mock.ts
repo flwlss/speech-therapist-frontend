@@ -1,4 +1,3 @@
-import type { Contact } from "@/types/Contacts";
 import type {
   Education,
   Experience,
@@ -35,13 +34,13 @@ export const education: Education[] = [
 export const experience: Experience[] = [
   {
     id: 1,
-    workName: "Медицинский центр «Ментал» (ранее «Ментал Консалтинг»)",
+    workName: "Медицинский центр «Ментал»",
     year: "2025",
     post: "Логопед",
   },
   {
     id: 2,
-    workName: "Врачебная практика",
+    workName: "Медицинский центр «Врачебная практика»",
     year: "2025",
     post: "Логопед",
   },
@@ -142,57 +141,6 @@ export const mockServices: Service[] = [
     price: 1500,
     description:
       "На расширенной консультации вы сможете обсудить со специалистом все аспекты, которые волную вас и мешают полноценно жить",
-  },
-];
-
-export const mockContacts: Contact[] = [
-  {
-    id: 1,
-    title: "Медицинский центр «Ментал» (ранее «Ментал Консалтинг»)",
-    address: "ул. Красный проспект, д. 99",
-    url: "https://mentalconsulting.ru/",
-    phoneNumber: "+7 383 285-52-27",
-    metro: [
-      {
-        id: 1,
-        name: "Заельцовская",
-        time: 7,
-      },
-      {
-        id: 2,
-        name: "Гагаринская",
-        time: 7,
-      },
-      {
-        id: 3,
-        name: "Красный Проспект",
-        time: 20,
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "«Врачебная практика»",
-    address: "ул. Покрышкина, д. 1",
-    url: "https://xn--54-dlc6c.xn--p1ai/",
-    phoneNumber: "+7 383 377-72-16",
-    metro: [
-      {
-        id: 4,
-        name: "Площадь Маркса",
-        time: 7,
-      },
-      {
-        id: 5,
-        name: "Студенческая",
-        time: 19,
-      },
-      {
-        id: 6,
-        name: "Речной вокзал",
-        time: 56,
-      },
-    ],
   },
 ];
 

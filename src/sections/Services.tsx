@@ -1,5 +1,3 @@
-"use client";
-
 import { mockServices } from "@/common/mock";
 import SectionTitle from "@/components/SectionTitle";
 

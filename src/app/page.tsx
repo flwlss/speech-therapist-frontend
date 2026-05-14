@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="px-5">
+      <main className="px-5 py-[61px]">
         <div className="container mx-auto space-y-15 xl:space-y-20 2xl:space-y-25">
           <About />
           <Skills />

@@ -1,9 +1,7 @@
-"use client";
-
 import { education, experience, qualification } from "@/common/mock";
 import Image from "next/image";
 
-export default function About() {
+const About = () => {
   return (
     <section id="about" className="space-y-5 lg:space-y-10">
       <div className="flex flex-col items-center space-y-3 lg:flex-row lg:space-y-0">
@@ -11,14 +9,13 @@ export default function About() {
           width={300}
           className="min-w-[300px] min-h-[300px] xl:min-w-[400px] xl:min-h-[400px] "
           height={300}
-          src={"/sofia.jpg"}
-          alt="Photo of a speech therapist"
+          src={"/sofia.webp"}
+          alt="Фотография специалиста"
           priority
         />
         <div className="space-y-3">
           <h1 className="text-center text-2xl/tight whitespace-pre lg:text-left lg:text-3xl xl:text-4xl">
-            {/* добавить автоматический подсчет */}
-            {`Логопед-дефектолог\nсо стажем более 1 года`}
+            {`Логопед-дефектолог\nНовосибирск`}
           </h1>
           <p className="font-light lg:text-lg xl:text-xl">
             Я — <strong>Нестерчук София</strong>, провожу работу с детьми,
@@ -27,7 +24,10 @@ export default function About() {
             elit. A explicabo, labore repudiandae quia enim voluptatem magni
             eos, ipsam non, velit dolores debitis. Quas mollitia, temporibus
             esse autem laborum quos aliquid. Lorem, ipsum dolor sit amet
-            consectetur adipisicing elit.
+            consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Natus exercitationem quia, quos possimus, expedita
+            ad blanditiis deleniti, dolor nulla tenetur rerum enim fugit qui
+            quod consectetur perferendis doloribus quibusdam suscipit.
           </p>
         </div>
       </div>
@@ -107,4 +107,6 @@ export default function About() {
       </div>
     </section>
   );
-}
+};
+
+export default About;
