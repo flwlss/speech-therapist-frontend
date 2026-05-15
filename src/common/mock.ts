@@ -3,7 +3,7 @@ import type {
   Experience,
   Qualification,
 } from "@/types/personFeatures";
-import type { Rewiew } from "@/types/Rewiews";
+import type { Review } from "@/types/reviews";
 import type { Service } from "@/types/services";
 import type { Skill } from "@/types/skills";
 
@@ -144,7 +144,7 @@ export const mockServices: Service[] = [
   },
 ];
 
-export const mockRewiews: Rewiew[] = [
+export const mockReviews: Review[] = [
   {
     id: 1,
     photo: "/taycan.jpg",

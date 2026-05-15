@@ -1,10 +1,10 @@
 "use client";
 
-import type { Rewiew } from "@/types/Rewiews";
+import type { Review } from "@/types/reviews";
 import Image from "next/image";
 
 interface IRewiewSlide {
-  rewiew: Rewiew;
+  rewiew: Review;
 }
 
 const RewiewSlide = ({ rewiew }: IRewiewSlide) => {

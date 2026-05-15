@@ -1,4 +1,4 @@
-export type Rewiew = {
+export type Review = {
   id: number;
   photo: string | null;
   name: string;
