@@ -34,14 +34,14 @@ export const education: Education[] = [
 export const experience: Experience[] = [
   {
     id: 1,
-    workName: "Медицинский центр «Ментал»",
+    workName: "Медицинский центр «Врачебная практика»",
     year: "2025",
     post: "Логопед",
   },
   {
     id: 2,
-    workName: "Медицинский центр «Врачебная практика»",
-    year: "2025",
+    workName: "Медицинский центр «Ментал»",
+    year: "2025 — 2026",
     post: "Логопед",
   },
   {
