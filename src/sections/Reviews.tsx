@@ -7,10 +7,10 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import RewiewSlide from "@/components/RewiewSlide";
 import { mockReviews } from "@/common/mock";
+import ReviewSlide from "@/components/ReviewSlide";
 
-const Rewiews = () => {
+const Reviews = () => {
   return (
     <section>
       <SectionTitle title="Отзывы" />
@@ -24,9 +24,9 @@ const Rewiews = () => {
         style={{ "--swiper-navigation-size": "24px" } as React.CSSProperties}
         modules={[Pagination, Navigation]}
       >
-        {mockReviews.map((rewiew) => (
-          <SwiperSlide key={rewiew.id}>
-            <RewiewSlide rewiew={rewiew} />
+        {mockReviews.map((review) => (
+          <SwiperSlide key={review.id}>
+            <ReviewSlide review={review} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -34,4 +34,4 @@ const Rewiews = () => {
   );
 };
 
-export default Rewiews;
+export default Reviews;

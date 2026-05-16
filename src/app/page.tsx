@@ -2,7 +2,7 @@ import Navbar from "@/components/NavBar";
 import About from "@/sections/About";
 import Contaсts from "@/sections/Contacts";
 import Footer from "@/sections/Footer";
-import Rewiews from "@/sections/Reviews";
+import Reviews from "@/sections/Reviews";
 import Services from "@/sections/Services";
 import Skills from "@/sections/Skills";
 
@@ -15,7 +15,7 @@ export default function Home() {
           <About />
           <Skills />
           <Services />
-          <Rewiews />
+          <Reviews />
           <Contaсts />
         </div>
       </main>
