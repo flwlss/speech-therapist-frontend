@@ -5,11 +5,16 @@ import { memo } from "react";
 interface IBurgerMenu {
   toggleMenu: () => void;
   isOpenedBurger: boolean;
+  handleScroll: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const BurgerMenu = ({ toggleMenu, isOpenedBurger }: IBurgerMenu) => {
+const BurgerMenu = ({
+  toggleMenu,
+  isOpenedBurger,
+  handleScroll,
+}: IBurgerMenu) => {
   return (
-    <div className="flex lg:hidden">
+    <div className="flex justify-between lg:hidden">
       <button
         onClick={toggleMenu}
         type="button"
@@ -36,6 +41,11 @@ const BurgerMenu = ({ toggleMenu, isOpenedBurger }: IBurgerMenu) => {
           ></span>
         </div>
       </button>
+      {!isOpenedBurger && (
+        <a href="#contacts" onClick={handleScroll} className="text-blue-700">
+          Записаться
+        </a>
+      )}
     </div>
   );
 };

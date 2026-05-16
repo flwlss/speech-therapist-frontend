@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { id: "about", name: "Обо мне" },
   { id: "skills", name: "С чем помогу" },
   { id: "services", name: "Услуги и цены" },
-  { id: "contacts", name: "Контакты" },
+  { id: "contacts", name: "Записаться" },
 ];
 
 const Navbar = () => {
@@ -57,14 +57,18 @@ const Navbar = () => {
       }`}
     >
       <nav className="container mx-auto">
-        <BurgerMenu toggleMenu={toggleMenu} isOpenedBurger={isOpenedBurger} />
+        <BurgerMenu
+          toggleMenu={toggleMenu}
+          isOpenedBurger={isOpenedBurger}
+          handleScroll={(e) => handleScroll(e, "contacts")}
+        />
         <div className={`${isOpenedBurger ? "block" : "hidden"} lg:flex`}>
           <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
             {NAV_ITEMS.map((item) => {
               return (
                 <li
                   className={
-                    "py-2 border-b border-blue-700 last:border-none lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                    "py-2 border-b border-blue-700 last:border-none last:text-blue-700 lg:border-0 lg:hover:text-blue-700 lg:p-0"
                   }
                   key={item.id}
                 >
