@@ -3,8 +3,8 @@ import SectionTitle from "@/components/SectionTitle";
 
 const Services = () => {
   return (
-    <section id="services">
-      <SectionTitle title="Услуги и цены" />
+    <section id="programs">
+      <SectionTitle title="Программы" />
       <div className="space-y-5 lg:grid lg:grid-cols-2 lg:gap-10 lg:space-y-0">
         {mockServices.map((service) => (
           <div key={service.id} className="space-y-1.5">

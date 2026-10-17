@@ -5,8 +5,8 @@ import BurgerMenu from "./BurgerMenu";
 
 const NAV_ITEMS = [
   { id: "about", name: "Обо мне" },
-  { id: "skills", name: "С чем помогу" },
-  { id: "services", name: "Услуги и цены" },
+  { id: "faq", name: "Частые вопросы" },
+  { id: "programs", name: "Программы" },
   { id: "contacts", name: "Записаться" },
 ];
 

@@ -1,11 +1,11 @@
 "use client";
 
-import { mockSkills } from "@/common/mock";
+import { mockFaqs } from "@/common/mock";
 import SectionTitle from "@/components/SectionTitle";
 import SkillItem from "@/components/SkillItem";
 import { useCallback, useState } from "react";
 
-const Skills = () => {
+const Faq = () => {
   const [accordionState, setAccordionState] = useState<Record<number, boolean>>(
     {},
   );
@@ -15,15 +15,15 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills">
-      <SectionTitle title="С чем помогу" />
+    <section id="faq">
+      <SectionTitle title="Частые вопросы" />
       <div className="space-y-2 lg:space-y-2.5 xl:space-y-3">
-        {mockSkills.map((skill) => (
+        {mockFaqs.map((faq) => (
           <SkillItem
-            key={skill.id}
+            key={faq.id}
             handleOpen={handleOpen}
-            skill={skill}
-            isOpen={accordionState[skill.id] || false}
+            faq={faq}
+            isOpen={accordionState[faq.id] || false}
           />
         ))}
       </div>
@@ -31,4 +31,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Faq;

@@ -1,10 +1,10 @@
 import Navbar from "@/components/NavBar";
 import About from "@/sections/About";
-import Contaсts from "@/sections/Contacts";
+import Contacts from "@/sections/Contacts";
 import Footer from "@/sections/Footer";
 import Reviews from "@/sections/Reviews";
 import Services from "@/sections/Services";
-import Skills from "@/sections/Skills";
+import Faq from "@/sections/Faq";
 
 export default function Home() {
   return (
@@ -13,10 +13,10 @@ export default function Home() {
       <main className="px-5 py-[61px]">
         <div className="container mx-auto space-y-15 xl:space-y-20 2xl:space-y-25">
           <About />
-          <Skills />
+          <Faq />
           <Services />
           <Reviews />
-          <Contaсts />
+          <Contacts />
         </div>
       </main>
       <Footer />

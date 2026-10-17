@@ -1,4 +1,4 @@
-export type Skill = {
+export type Faq = {
   id: number;
   title: string;
   description: string;

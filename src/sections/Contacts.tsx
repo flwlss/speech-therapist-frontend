@@ -2,7 +2,7 @@ import SectionTitle from "@/components/SectionTitle";
 import Feedback from "@/components/Feedback";
 import RequestForm from "@/components/RequestForm";
 
-const Contaсts = () => {
+const Contacts = () => {
   return (
     <section id="contacts">
       <SectionTitle title="Контакты" />
@@ -16,4 +16,4 @@ const Contaсts = () => {
   );
 };
 
-export default Contaсts;
+export default Contacts;

@@ -14,8 +14,8 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Нестерчук София Александровна, логопед-дефектолог, Новосибирск",
-  description: "Нестерчук София Александровна, логопед-дефектолог, Новосибирск",
+  title: "Нестерчук София, медицинский логопед-афазиолог",
+  description: "Нестерчук София, медицинский логопед-афазиолог",
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body className={`${roboto.variable} ${robotoMono.variable} antialiased`}>
         {children}
       </body>

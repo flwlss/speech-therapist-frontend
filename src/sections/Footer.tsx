@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto grid text-center gap-x-10 gap-y-4 sm:grid-cols-2 sm:text-left">
         <div>
           <p className="uppercase text-lg xl:text-xl">Нестерчук София</p>
-          <p className="text-sm xl:text-base">Медицинский логопед</p>
+          <p className="text-sm xl:text-base">Медицинский логопед-афазиолог</p>
         </div>
         <Feedback />
         <p className="uppercase text-gray-500 text-xs">{`© ${year} Все права защищены`}</p>
