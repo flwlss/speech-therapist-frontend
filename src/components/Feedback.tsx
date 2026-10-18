@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Feedback = () => {
   return (
-    <address className="grid gap-3 not-italic">
+    <address className="grid gap-3 not-italic max-w-max">
       <a
         href="tel:+79513774071"
         className="font-serif text-2xl font-medium underline-offset-4 hover:underline xl:text-3xl"

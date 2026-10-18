@@ -1,6 +1,7 @@
 "use client";
 
 import { InputMask } from "@react-input/mask";
+import Link from "next/link";
 import { useState, FormEvent, useEffect } from "react";
 
 interface StatusState {
@@ -130,15 +131,30 @@ const RequestForm = () => {
         </div>
       </div>
 
-      <label className="flex cursor-pointer items-start gap-3 text-sm leading-snug text-ink/85">
+      <label
+        htmlFor="agreement"
+        className="flex cursor-pointer items-start gap-3 text-sm leading-snug text-ink/85"
+      >
         <input
+          id="agreement"
           type="checkbox"
           name="agreement"
           required
           disabled={isLoading}
-          className="mt-0.5 h-5 w-5 shrink-0 cursor-pointer accent-spruce"
+          className="checkbox"
         />
-        <span>Я согласен на обработку персональных данных</span>
+        <span>
+          Я согласен на{" "}
+          <Link
+            href="/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-spruce underline decoration-spruce/40 underline-offset-4 transition-colors hover:decoration-spruce"
+          >
+            обработку персональных данных
+            <span className="sr-only"> (откроется в новой вкладке)</span>
+          </Link>
+        </span>
       </label>
 
       <button
