@@ -17,10 +17,10 @@ const Feedback = () => {
       </a>
       <div className="mt-2 flex gap-3">
         <a
-          href="#"
+          href="https://max.ru/u/f9LHodD0cOINQdIPPAawyoEL0xUE9ISuGuOVBB2lrJOoeCsWzMAHGgyweEU"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Макс"
+          aria-label="Мессенджер Макс"
           className="block rounded-xl transition-transform hover:scale-105"
         >
           <Image
@@ -28,14 +28,14 @@ const Feedback = () => {
             width={44}
             height={44}
             loading="lazy"
-            alt="Макс"
+            alt="Мессенджер Макс"
           />
         </a>
         <a
-          href="#"
+          href="https://t.me/+79513774071"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Telegram"
+          aria-label="Мессенджер Телеграм"
           className="block rounded-full transition-transform hover:scale-105"
         >
           <Image
@@ -43,7 +43,7 @@ const Feedback = () => {
             width={44}
             height={44}
             loading="lazy"
-            alt="Телеграм"
+            alt="Мессенджер Телеграм"
           />
         </a>
       </div>
