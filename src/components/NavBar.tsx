@@ -89,7 +89,7 @@ const Navbar = () => {
                   className={
                     item.id === "contacts"
                       ? "ml-2 inline-block rounded-full bg-spruce px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-spruce-dark"
-                      : "inline-block rounded-full px-4 py-2 text-[0.95rem] text-ink/80 transition-colors hover:bg-mist hover:text-spruce"
+                      : "inline-block rounded-full px-4 py-2 text-base text-ink/80 transition-colors hover:bg-mist hover:text-spruce"
                   }
                 >
                   {item.name}
@@ -123,7 +123,7 @@ const Navbar = () => {
                   className={
                     item.id === "contacts"
                       ? "flex h-14 items-center justify-center rounded-full bg-sun font-semibold text-ink"
-                      : "block py-4 text-2xl font-medium"
+                      : "block py-4 text-xl font-medium"
                   }
                 >
                   {item.name}
