@@ -98,11 +98,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <BurgerMenu
-            toggleMenu={toggleMenu}
-            isOpenedBurger={isOpenedBurger}
-            handleScroll={(e) => handleScroll(e, "contacts")}
-          />
+          <BurgerMenu toggleMenu={toggleMenu} isOpenedBurger={isOpenedBurger} />
         </nav>
       </header>
 

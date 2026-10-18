@@ -5,14 +5,9 @@ import { memo } from "react";
 interface IBurgerMenu {
   toggleMenu: () => void;
   isOpenedBurger: boolean;
-  handleScroll: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const BurgerMenu = ({
-  toggleMenu,
-  isOpenedBurger,
-  handleScroll,
-}: IBurgerMenu) => {
+const BurgerMenu = ({ toggleMenu, isOpenedBurger }: IBurgerMenu) => {
   return (
     <div className="flex items-center gap-3 lg:hidden">
       <button
