@@ -4,14 +4,14 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 p-4">
-      <div className="container mx-auto grid text-center gap-x-10 gap-y-4 sm:grid-cols-2 sm:text-left">
+    <footer className="border-t border-ink/10 bg-paper py-10">
+      <div className="mx-auto grid w-full max-w-6xl gap-x-10 gap-y-8 px-5 sm:grid-cols-2 sm:px-8">
         <div>
-          <p className="uppercase text-lg xl:text-xl">Нестерчук София</p>
-          <p className="text-sm xl:text-base">Медицинский логопед-афазиолог</p>
+          <p className="font-serif text-xl font-semibold">Нестерчук София</p>
+          <p className="text-muted">Медицинский логопед-афазиолог</p>
         </div>
         <Feedback />
-        <p className="uppercase text-gray-500 text-xs">{`© ${year} Все права защищены`}</p>
+        <p className="text-sm text-muted sm:col-span-2">{`© ${year} Все права защищены`}</p>
       </div>
     </footer>
   );

@@ -20,11 +20,19 @@ const Navbar = () => {
   const handleScroll = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
       e.preventDefault();
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
       setIsOpenedBurger(false);
+      // Даём меню закрыться и вернуть прокрутку странице, затем скроллим к разделу.
+      requestAnimationFrame(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+          ).matches;
+          element.scrollIntoView({
+            behavior: reduceMotion ? "auto" : "smooth",
+          });
+        }
+      });
     },
     [],
   );
@@ -41,50 +49,95 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    if (!isOpenedBurger) return;
+
     const originalOverflow = document.body.style.overflow;
-    if (isOpenedBurger) {
-      document.body.style.overflow = "hidden";
-    }
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpenedBurger(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpenedBurger]);
 
   return (
-    <header
-      className={`bg-white border-b border-gray-200 fixed w-full z-10 px-5 py-4.5 ${
-        isOpenedBurger && "h-full"
-      }`}
-    >
-      <nav className="container mx-auto">
-        <BurgerMenu
-          toggleMenu={toggleMenu}
-          isOpenedBurger={isOpenedBurger}
-          handleScroll={(e) => handleScroll(e, "contacts")}
-        />
-        <div className={`${isOpenedBurger ? "block" : "hidden"} lg:flex`}>
-          <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
-            {NAV_ITEMS.map((item) => {
-              return (
-                <li
+    <>
+      <header className="fixed inset-x-0 top-3 z-50 px-3 sm:px-5">
+        <nav
+          aria-label="Основная навигация"
+          className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between rounded-full border border-ink/10 bg-paper/90 pl-5 pr-2 shadow-[0_10px_30px_-14px_rgba(22,48,47,0.35)] backdrop-blur-md sm:pl-6"
+        >
+          <a
+            href="#about"
+            onClick={(e) => handleScroll(e, "about")}
+            className="font-display text-base font-semibold tracking-tight sm:text-lg"
+          >
+            Нестерчук София
+          </a>
+
+          <ul className="hidden items-center gap-1 lg:flex">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => handleScroll(e, item.id)}
                   className={
-                    "py-2 border-b border-blue-700 last:border-none last:text-blue-700 lg:border-0 lg:hover:text-blue-700 lg:p-0"
+                    item.id === "contacts"
+                      ? "ml-2 inline-block rounded-full bg-spruce px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-spruce-dark"
+                      : "inline-block rounded-full px-4 py-2 text-[0.95rem] text-ink/80 transition-colors hover:bg-mist hover:text-spruce"
                   }
-                  key={item.id}
                 >
-                  <a
-                    href={`#${item.id}`}
-                    onClick={(e) => handleScroll(e, item.id)}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              );
-            })}
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <BurgerMenu
+            toggleMenu={toggleMenu}
+            isOpenedBurger={isOpenedBurger}
+            handleScroll={(e) => handleScroll(e, "contacts")}
+          />
+        </nav>
+      </header>
+
+      {/* Панель вынесена из <header>: у шапки есть backdrop-blur, и внутри неё
+          fixed-элементы позиционировались бы относительно шапки, а не экрана. */}
+      {isOpenedBurger && (
+        <div
+          id="mobile-menu"
+          className="animate-fade-in fixed inset-x-3 bottom-3 top-[4.75rem] z-40 overflow-y-auto rounded-3xl bg-deep p-6 text-white sm:inset-x-5 lg:hidden"
+        >
+          <ul>
+            {NAV_ITEMS.map((item) => (
+              <li
+                key={item.id}
+                className={
+                  item.id === "contacts" ? "pt-8" : "border-b border-white/15"
+                }
+              >
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => handleScroll(e, item.id)}
+                  className={
+                    item.id === "contacts"
+                      ? "flex h-14 items-center justify-center rounded-full bg-sun font-semibold text-ink"
+                      : "block py-4 font-display text-2xl font-medium"
+                  }
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
-      </nav>
-    </header>
+      )}
+    </>
   );
 };
 

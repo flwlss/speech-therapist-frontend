@@ -8,8 +8,19 @@ interface StatusState {
   text: string;
 }
 
+const inputClass =
+  "h-14 w-full rounded-xl border border-ink/25 bg-white px-4 text-base text-ink outline-none transition placeholder:text-muted focus:border-spruce focus:ring-4 focus:ring-spruce/20 disabled:cursor-not-allowed disabled:bg-mist";
+
+// Форма считается заполненной верно, если все поля проходят проверку браузера
+// (имя от 2 символов, телефон по маске, галочка согласия) и имя не состоит из пробелов.
+const validate = (form: HTMLFormElement) => {
+  const name = String(new FormData(form).get("name") ?? "").trim();
+  return form.checkValidity() && name.length >= 2;
+};
+
 const RequestForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isValid, setIsValid] = useState(false);
   const [status, setStatus] = useState<StatusState>({
     type: null,
     text: "",
@@ -17,6 +28,7 @@ const RequestForm = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!validate(event.currentTarget)) return;
     setIsLoading(true);
     setStatus({ type: null, text: "" });
 
@@ -43,6 +55,7 @@ const RequestForm = () => {
           text: "✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.",
         });
         (event.target as HTMLFormElement).reset();
+        setIsValid(false);
       } else {
         setStatus({
           type: "error",
@@ -71,52 +84,77 @@ const RequestForm = () => {
   }, [status.text]);
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <p className="text-lg lg:text-xl xl:text-2xl font-medium">
-        Оставить заявку
-      </p>
+    <form
+      onSubmit={handleSubmit}
+      onChange={(event) => setIsValid(validate(event.currentTarget))}
+      className="space-y-4"
+    >
+      <p className="font-serif text-2xl font-semibold">Оставить заявку</p>
 
-      <div className="space-y-4 lg:flex lg:space-y-0 lg:space-x-4">
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          minLength={2}
-          maxLength={50}
-          placeholder="Ваше имя"
-          disabled={isLoading}
-          className="border border-blue-700 w-full h-[50px] px-4 outline-none rounded-md disabled:bg-gray-100 disabled:cursor-not-allowed"
-        />
+      <div className="space-y-4">
+        <div>
+          <label htmlFor="name" className="sr-only">
+            Ваше имя
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            minLength={2}
+            maxLength={50}
+            placeholder="Ваше имя"
+            disabled={isLoading}
+            autoComplete="name"
+            className={inputClass}
+          />
+        </div>
 
-        <InputMask
-          required
-          type="tel"
-          id="phone"
-          name="phone"
-          mask="+7 (___) ___-__-__"
-          replacement={{ _: /\d/ }}
-          placeholder="+7 (___) ___-__-__"
-          pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}"
-          disabled={isLoading}
-          className="border border-blue-700 w-full h-[50px] px-4 outline-none rounded-md disabled:bg-gray-100 disabled:cursor-not-allowed"
-        />
+        <div>
+          <label htmlFor="phone" className="sr-only">
+            Телефон
+          </label>
+          <InputMask
+            required
+            type="tel"
+            id="phone"
+            name="phone"
+            mask="+7 (___) ___-__-__"
+            replacement={{ _: /\d/ }}
+            placeholder="+7 (___) ___-__-__"
+            pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}"
+            disabled={isLoading}
+            autoComplete="tel"
+            className={inputClass}
+          />
+        </div>
       </div>
+
+      <label className="flex cursor-pointer items-start gap-3 text-sm leading-snug text-ink/85">
+        <input
+          type="checkbox"
+          name="agreement"
+          required
+          disabled={isLoading}
+          className="mt-0.5 h-5 w-5 shrink-0 cursor-pointer accent-spruce"
+        />
+        <span>Я согласен на обработку персональных данных</span>
+      </label>
 
       <button
         type="submit"
-        disabled={isLoading}
-        className="bg-blue-100 w-full h-[50px] border border-blue-700 rounded-md text-blue-700 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={isLoading || !isValid}
+        className="h-14 w-full cursor-pointer rounded-xl bg-spruce font-medium text-white transition-colors hover:bg-spruce-dark disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isLoading ? "Отправка..." : "Записаться"}
       </button>
 
       {status.text && (
         <div
-          className={`p-3 rounded-md text-sm animate-fade-in ${
+          className={`animate-fade-in rounded-xl p-3 text-sm ${
             status.type === "success"
-              ? "bg-green-50 text-green-700 border border-green-200"
-              : "bg-red-50 text-red-700 border border-red-200"
+              ? "border border-green-200 bg-green-50 text-green-800"
+              : "border border-red-200 bg-red-50 text-red-800"
           }`}
           role="alert"
         >

@@ -1,7 +1,14 @@
 interface ISectionTitle {
   title: string;
+  className?: string;
 }
 
-export default function SectionTitle({ title }: ISectionTitle) {
-  return <h2 className="text-2xl mb-3 xl:text-4xl xl:mb-5">{title}</h2>;
+export default function SectionTitle({ title, className = "" }: ISectionTitle) {
+  return (
+    <h2
+      className={`font-serif text-3xl font-semibold leading-tight tracking-tight lg:text-4xl ${className}`}
+    >
+      {title}
+    </h2>
+  );
 }

@@ -3,21 +3,19 @@ import About from "@/sections/About";
 import Contacts from "@/sections/Contacts";
 import Footer from "@/sections/Footer";
 import Reviews from "@/sections/Reviews";
-import Services from "@/sections/Services";
 import Faq from "@/sections/Faq";
+import Programs from "@/sections/Programs";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="px-5 py-[61px]">
-        <div className="container mx-auto space-y-15 xl:space-y-20 2xl:space-y-25">
-          <About />
-          <Faq />
-          <Services />
-          <Reviews />
-          <Contacts />
-        </div>
+      <main className="pt-16">
+        <About />
+        <Faq />
+        <Programs />
+        <Reviews />
+        <Contacts />
       </main>
       <Footer />
     </>

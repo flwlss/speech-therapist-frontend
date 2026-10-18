@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Roboto, Roboto_Mono } from "next/font/google";
+import { Onest, Literata } from "next/font/google";
 import "./globals.css";
 
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["300", "400"],
+const onest = Onest({
+  variable: "--font-onest",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
 });
 
-const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
-  subsets: ["latin"],
+const literata = Literata({
+  variable: "--font-literata",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Нестерчук София, медицинский логопед-афазиолог",
-  description: "Нестерчук София, медицинский логопед-афазиолог",
+  title: "Нестерчук София, медицинский логопед-афазиолог, Новосибирск",
+  description: "Нестерчук София, медицинский логопед-афазиолог, Новосибирск",
 };
 
 export default function RootLayout({
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${roboto.variable} ${robotoMono.variable} antialiased`}>
+      <body className={`${onest.variable} ${literata.variable} antialiased`}>
         {children}
       </body>
     </html>

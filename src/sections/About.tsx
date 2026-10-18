@@ -1,117 +1,129 @@
 import { education, experience, qualification } from "@/common/mock";
+import Timeline from "@/components/Timeline";
 import Image from "next/image";
+
+const MaskIcon = ({ src }: { src: string }) => (
+  <span
+    aria-hidden
+    className="block h-6 w-6 bg-spruce"
+    style={{
+      maskImage: `url(${src})`,
+      WebkitMaskImage: `url(${src})`,
+      maskRepeat: "no-repeat",
+      WebkitMaskRepeat: "no-repeat",
+      maskSize: "contain",
+      WebkitMaskSize: "contain",
+      maskPosition: "center",
+      WebkitMaskPosition: "center",
+    }}
+  />
+);
+
+const ColumnTitle = ({ icon, title }: { icon: string; title: string }) => (
+  <div className="mb-6 flex items-center gap-3">
+    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-mist">
+      <MaskIcon src={icon} />
+    </span>
+    <h3 className="font-serif text-2xl font-semibold leading-tight">{title}</h3>
+  </div>
+);
 
 const About = () => {
   return (
-    <section id="about" className="space-y-5 lg:space-y-10">
-      <div className="flex flex-col items-center space-y-3 lg:flex-row lg:space-y-0">
-        <Image
-          width={400}
-          className="min-w-[300px] min-h-[300px] xl:min-w-[400px] xl:min-h-[400px]"
-          height={400}
-          src={"/sofia.webp"}
-          alt="Фотография специалиста"
-          priority
-        />
-        <div className="space-y-3">
-          <h1 className="font-light lg:text-lg xl:text-xl">
-            Я — <strong>Нестерчук София</strong>, медицинский логопед-афазиолог.
-          </h1>
-          <p className="font-light lg:text-lg xl:text-xl">
-            Я работаю с пациентами после инсультов и черепно-мозговых травм,
-            опухолей, операций на мозг, а также с людьми, страдающими
-            нейродегенеративными заболеваниями. Сопровождаю семьи на каждом
-            этапе – от острой фазы до устойчивых результатов. Также провожу
-            супервизии для начинающих специалистов – помогаю разобраться в
-            тактике и нюансах работы.
-          </p>
-          <p className="font-light lg:text-lg xl:text-xl">
-            Цель моей работы – шаг за шагом вернуть человеку качество жизни:
-            речь, понимание, уверенность в своих силах, а также помочь не
-            потеряться в потоке информации и выстроить спокойную, понятную
-            систему восстановления. Я помогаю семье увидеть логику
-            восстановления: приоритеты, последовательность и адекватную
-            нагрузку, используя бережный, но системный подход на основе
-            доказательных методов.
-          </p>
-          <p className="font-light lg:text-lg xl:text-xl">
-            Веду онлайн-прием, поэтому могу быть рядом с пациентами в любой
-            точке мира.
-          </p>
-        </div>
-      </div>
-      <div className="lg:grid lg:grid-cols-3 lg:gap-10">
-        <div className="mb-5 lg:mb-0">
-          <h3 className="text-xl mb-2 xl:text-3xl">Образование</h3>
-          {education.map((item) => (
-            <div key={item.id} className="leading-tight mb-3 last:mb-0">
-              <div className="flex items-center gap-3 mb-2">
+    <section id="about" className="bg-paper pb-16 pt-10 lg:pb-24 lg:pt-16">
+      <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-stretch lg:gap-20">
+          <div className="animate-rise order-2 lg:order-1">
+            <h1 className="font-serif text-[2rem] font-medium leading-[1.15] tracking-tight">
+              Я —{" "}
+              <strong className="font-semibold">
+                Нестерчук София Александровна
+              </strong>
+              , медицинский логопед-афазиолог.
+            </h1>
+            <div className="mt-8 space-y-5 text-lg text-ink/85">
+              <p>
+                Я работаю с пациентами после инсультов и черепно-мозговых травм,
+                опухолей, операций на мозг, а также с людьми, страдающими
+                нейродегенеративными заболеваниями. Сопровождаю семьи на каждом
+                этапе – от острой фазы до устойчивых результатов. Также провожу
+                супервизии для начинающих специалистов – помогаю разобраться в
+                тактике и нюансах работы.
+              </p>
+              <p>
+                Цель моей работы – шаг за шагом вернуть человеку качество жизни:
+                речь, понимание, уверенность в своих силах, а также помочь не
+                потеряться в потоке информации и выстроить спокойную, понятную
+                систему восстановления. Я помогаю семье увидеть логику
+                восстановления: приоритеты, последовательность и адекватную
+                нагрузку, используя бережный, но системный подход на основе
+                доказательных методов.
+              </p>
+              <p>
+                Веду онлайн-прием, поэтому могу быть рядом с пациентами в любой
+                точке мира.
+              </p>
+            </div>
+            <a
+              href="#contacts"
+              className="mt-9 inline-flex h-14 items-center rounded-full bg-spruce px-8 font-medium text-white transition-colors hover:bg-spruce-dark"
+            >
+              Записаться
+            </a>
+          </div>
+          <div
+            className="animate-rise order-1 mx-auto w-full max-w-[360px] lg:order-2 lg:min-h-[28rem] lg:max-w-none"
+            style={{ animationDelay: "120ms" }}
+          >
+            <div className="relative aspect-[11/12] lg:aspect-auto lg:h-full">
+              <div className="relative h-full w-full overflow-hidden rounded-[2rem]">
                 <Image
-                  src={"/education.svg"}
-                  className="min-w-[25px] max-h-[25px] xl:min-w-[30px] xl:min-h-[30px]"
-                  width={25}
-                  height={25}
-                  alt="Образование"
+                  src={"/sofianesterchuk.webp"}
+                  alt="Фотография специалиста"
+                  fill
+                  sizes="(min-width: 1024px) 420px, 360px"
+                  className="object-cover object-top"
+                  priority
                 />
-                <p className="lg:text-lg xl:text-xl">{item.universityName}</p>
-              </div>
-              <div className="pl-6 border-l-1 border-gray-500 ml-3 xl:ml-3.5">
-                <p className="text-gray-500 text-sm lg:text-base">
-                  {item.year}
-                </p>
-                <p className="lg:text-lg">{item.faculty}</p>
-                <p className="text-gray-500 text-sm lg:text-base">
-                  {item.degree}
-                </p>
               </div>
             </div>
-          ))}
+          </div>
         </div>
-        <div className="mb-5 lg:mb-0">
-          <h3 className="text-xl mb-2 xl:text-3xl">Опыт работы</h3>
-          {experience.map((item) => (
-            <div key={item.id} className="leading-tight mb-3 last:mb-0">
-              <div className="flex items-center gap-3 mb-2">
-                <Image
-                  src={"/experience.svg"}
-                  className="min-w-[25px] max-h-[25px] xl:min-w-[30px] xl:min-h-[30px]"
-                  width={25}
-                  height={25}
-                  alt="Опыт работы"
-                />
-                <p className="lg:text-lg xl:text-xl">{item.workName}</p>
-              </div>
-              <div className="pl-6 border-l-1 border-gray-500 ml-3 xl:ml-3.5">
-                <p className="text-gray-500 text-sm lg:text-base">
-                  {item.year}
-                </p>
-                <p className="lg:text-lg">{item.post}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mb-5 lg:mb-0">
-          <h3 className="text-xl mb-2 xl:text-3xl">Повышение квалификации</h3>
-          {qualification.map((item) => (
-            <div key={item.id} className="leading-tight mb-3 last:mb-0">
-              <div className="flex items-center gap-3 mb-2">
-                <Image
-                  src={"/arrow.svg"}
-                  className="min-w-[25px] max-h-[25px] xl:min-w-[30px] xl:min-h-[30px]"
-                  width={25}
-                  height={25}
-                  alt="Повышение квалификации"
-                />
-                <p className="lg:text-lg xl:text-xl">{item.placeName}</p>
-              </div>
-              <div className="pl-6 border-l-1 border-gray-500 ml-3 xl:ml-3.5">
-                <p className="text-gray-500 text-sm lg:text-base">
-                  {item.year}
-                </p>
-                <p className="lg:text-lg">{item.post}</p>
-              </div>
-            </div>
-          ))}
+
+        <div className="mt-20 grid gap-12 lg:grid-cols-3 lg:gap-10">
+          <div>
+            <ColumnTitle icon="/education.svg" title="Образование" />
+            <Timeline
+              items={education.map((item) => ({
+                id: item.id,
+                year: item.year,
+                title: item.universityName,
+                lines: [item.faculty, item.degree],
+              }))}
+            />
+          </div>
+          <div>
+            <ColumnTitle icon="/experience.svg" title="Опыт работы" />
+            <Timeline
+              items={experience.map((item) => ({
+                id: item.id,
+                year: item.year,
+                title: item.workName,
+                lines: [item.post],
+              }))}
+            />
+          </div>
+          <div>
+            <ColumnTitle icon="/arrow.svg" title="Повышение квалификации" />
+            <Timeline
+              items={qualification.map((item) => ({
+                id: item.id,
+                year: item.year,
+                title: item.placeName,
+                lines: [item.post],
+              }))}
+            />
+          </div>
         </div>
       </div>
     </section>

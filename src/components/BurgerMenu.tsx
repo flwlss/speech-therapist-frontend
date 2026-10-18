@@ -14,38 +14,33 @@ const BurgerMenu = ({
   handleScroll,
 }: IBurgerMenu) => {
   return (
-    <div className="flex justify-between lg:hidden">
+    <div className="flex items-center gap-3 lg:hidden">
       <button
         onClick={toggleMenu}
         type="button"
-        className="text-gray-500"
+        className="grid h-11 w-11 place-items-center rounded-full text-ink"
         aria-controls="mobile-menu"
         aria-expanded={isOpenedBurger}
       >
         <span className="sr-only">Открыть меню</span>
-        <div className="w-6 h-6 flex flex-col justify-center">
+        <span aria-hidden className="relative block h-6 w-6">
           <span
-            className={`absolute h-0.5 w-6 bg-current duration-300 ease-in-out ${
-              isOpenedBurger ? "rotate-45" : "-translate-y-1.5"
+            className={`absolute left-0 top-[11px] h-0.5 w-6 bg-current duration-300 ease-in-out ${
+              isOpenedBurger ? "rotate-45" : "-translate-y-2"
             }`}
-          ></span>
+          />
           <span
-            className={`absolute h-0.5 w-6 bg-current duration-300 ease-in-out ${
+            className={`absolute left-0 top-[11px] h-0.5 w-6 bg-current duration-300 ease-in-out ${
               isOpenedBurger ? "opacity-0" : "opacity-100"
             }`}
-          ></span>
+          />
           <span
-            className={`absolute h-0.5 w-6 bg-current duration-300 ease-in-out ${
-              isOpenedBurger ? "-rotate-45" : "translate-y-1.5"
+            className={`absolute left-0 top-[11px] h-0.5 w-6 bg-current duration-300 ease-in-out ${
+              isOpenedBurger ? "-rotate-45" : "translate-y-2"
             }`}
-          ></span>
-        </div>
+          />
+        </span>
       </button>
-      {!isOpenedBurger && (
-        <a href="#contacts" onClick={handleScroll} className="text-blue-700">
-          Записаться
-        </a>
-      )}
     </div>
   );
 };

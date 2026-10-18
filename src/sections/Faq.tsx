@@ -1,6 +1,7 @@
 "use client";
 
 import { mockFaqs } from "@/common/mock";
+import SectionContainer from "@/components/SectionContainer";
 import SectionTitle from "@/components/SectionTitle";
 import SkillItem from "@/components/SkillItem";
 import { useCallback, useState } from "react";
@@ -15,19 +16,25 @@ const Faq = () => {
   }, []);
 
   return (
-    <section id="faq">
-      <SectionTitle title="Частые вопросы" />
-      <div className="space-y-2 lg:space-y-2.5 xl:space-y-3">
-        {mockFaqs.map((faq) => (
-          <SkillItem
-            key={faq.id}
-            handleOpen={handleOpen}
-            faq={faq}
-            isOpen={accordionState[faq.id] || false}
-          />
-        ))}
+    <SectionContainer id="faq" tone="mist">
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
+        <div className="mb-10 lg:mb-0">
+          <div className="lg:top-28">
+            <SectionTitle title="Частые вопросы" />
+          </div>
+        </div>
+        <div>
+          {mockFaqs.map((faq) => (
+            <SkillItem
+              key={faq.id}
+              handleOpen={handleOpen}
+              faq={faq}
+              isOpen={accordionState[faq.id] || false}
+            />
+          ))}
+        </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 };
 

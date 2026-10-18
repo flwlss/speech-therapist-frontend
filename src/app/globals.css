@@ -1,51 +1,104 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-paper: #f7f9f8;
+  --color-ink: #16302f;
+  --color-muted: #52676a;
+  --color-spruce: #1e5b57;
+  --color-spruce-dark: #164744;
+  --color-deep: #143f3c;
+  --color-mist: #e3efeb;
+  --color-sage: #9cc5b8;
+  --color-sun: #f2c879;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-roboto);
-  --font-mono: var(--font-roboto-mono);
+  --font-sans: var(--font-onest), Arial, Helvetica, sans-serif;
+  --font-serif: var(--font-literata), Georgia, "Times New Roman", serif;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 html {
-  scroll-padding-top: 61px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-roboto), Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
 }
 
-.swiper-pagination {
+::selection {
+  background: var(--color-sun);
+  color: var(--color-ink);
+}
+
+/* Swiper (отзывы) */
+.reviews-swiper {
+  --swiper-theme-color: var(--color-spruce);
+  --swiper-navigation-size: 16px;
+  --swiper-pagination-bullet-inactive-color: var(--color-spruce);
+  --swiper-pagination-bullet-inactive-opacity: 0.25;
+  padding: 2px;
+}
+
+.reviews-swiper .swiper-slide {
+  height: auto;
+}
+
+.reviews-swiper .swiper-pagination {
   position: relative !important;
   bottom: 0 !important;
-  margin-top: 10px;
+  margin-top: 24px;
+}
+
+.reviews-swiper .swiper-button-prev,
+.reviews-swiper .swiper-button-next {
+  width: 44px !important;
+  height: 44px !important;
+  margin-top: -22px !important;
+  background: #fff;
+  border: 1px solid rgb(22 48 47 / 0.15);
+  border-radius: 9999px;
+  color: var(--color-spruce);
+}
+
+.reviews-swiper .swiper-button-prev {
+  left: 8px !important;
+}
+
+.reviews-swiper .swiper-button-next {
+  right: 8px !important;
 }
 
 @media (max-width: 1024px) {
-  .swiper-button-next,
-  .swiper-button-prev {
+  .reviews-swiper .swiper-button-next,
+  .reviews-swiper .swiper-button-prev {
     display: none !important;
   }
+}
+
+/* Появление главного экрана: единственный анимированный момент при загрузке */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
@@ -55,4 +108,15 @@ body {
 
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
