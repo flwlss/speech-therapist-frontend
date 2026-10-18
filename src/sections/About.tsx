@@ -26,7 +26,9 @@ const ColumnTitle = ({ icon, title }: { icon: string; title: string }) => (
     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-mist">
       <MaskIcon src={icon} />
     </span>
-    <h2 className="font-serif text-2xl font-semibold leading-tight">{title}</h2>
+    <h2 className="font-serif text-[22px] lg:text-2xl font-semibold leading-tight">
+      {title}
+    </h2>
   </div>
 );
 
@@ -42,7 +44,7 @@ const About = () => {
           <div className="animate-rise order-2 lg:order-1">
             <h1
               id="about-title"
-              className="font-serif text-[2rem] font-medium leading-[1.15] tracking-tight"
+              className="font-serif text-3xl font-medium leading-[1.15] tracking-tight"
             >
               Я —{" "}
               <strong className="font-semibold">
