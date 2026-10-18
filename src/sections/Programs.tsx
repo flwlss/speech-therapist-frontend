@@ -14,12 +14,12 @@ const Programs = () => {
   const [activeId, setActiveId] = useState(mockPrograms[0].id);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const activeService =
-    mockPrograms.find((service) => service.id === activeId) ?? mockPrograms[0];
+  const activeProgram =
+    mockPrograms.find((program) => program.id === activeId) ?? mockPrograms[0];
 
   // Переключаем услугу и возвращаем текст в начало внутри контейнера.
   // Высота блока на широких экранах фиксирована, поэтому страница не прыгает.
-  const selectService = (id: number) => {
+  const selectProgram = (id: number) => {
     setActiveId(id);
     if (scrollRef.current) {
       scrollRef.current.scrollTop = 0;
@@ -47,13 +47,17 @@ const Programs = () => {
 
     e.preventDefault();
     const target = mockPrograms[next];
-    selectService(target.id);
-    document.getElementById(`service-tab-${target.id}`)?.focus();
+    selectProgram(target.id);
+    document.getElementById(`program-tab-${target.id}`)?.focus();
   };
 
   return (
-    <SectionContainer id="programs">
-      <SectionTitle title="Программы" className="mb-8 lg:mb-14" />
+    <SectionContainer id="service" labelledBy="service-title">
+      <SectionTitle
+        id="service-title"
+        title="Программы"
+        className="mb-8 lg:mb-14"
+      />
 
       <div className="lg:grid lg:grid-cols-[minmax(0,330px)_minmax(0,1fr)] lg:items-start lg:gap-12">
         {/* Телефон и планшет: выпадающий выбор услуги */}
@@ -66,11 +70,11 @@ const Programs = () => {
           <button
             type="button"
             aria-expanded={isMenuOpen}
-            aria-controls="service-menu"
+            aria-controls="program-menu"
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="flex w-full cursor-pointer items-center justify-between gap-4 rounded-2xl bg-spruce px-5 py-4 text-left font-medium leading-snug text-white"
           >
-            <span>{activeService.title}</span>
+            <span>{activeProgram.title}</span>
             <svg
               aria-hidden
               viewBox="0 0 24 24"
@@ -89,28 +93,28 @@ const Programs = () => {
 
           {isMenuOpen && (
             <ul
-              id="service-menu"
+              id="program-menu"
               className="animate-fade-in mt-2 overflow-hidden rounded-2xl bg-white ring-1 ring-ink/10"
             >
-              {mockPrograms.map((service) => {
-                const isActive = service.id === activeId;
+              {mockPrograms.map((program) => {
+                const isActive = program.id === activeId;
                 return (
                   <li
-                    key={service.id}
+                    key={program.id}
                     className="border-t border-ink/10 first:border-t-0"
                   >
                     <button
                       type="button"
                       aria-current={isActive}
                       onClick={() => {
-                        selectService(service.id);
+                        selectProgram(program.id);
                         setIsMenuOpen(false);
                       }}
                       className={`flex w-full cursor-pointer items-center justify-between gap-3 px-5 py-4 text-left leading-snug ${
                         isActive ? "bg-mist font-semibold text-spruce" : ""
                       }`}
                     >
-                      <span>{service.title}</span>
+                      <span>{program.title}</span>
                       {isActive && (
                         <svg
                           aria-hidden
@@ -136,21 +140,21 @@ const Programs = () => {
         {/* Компьютер: список услуг слева */}
         <div
           role="tablist"
-          aria-label="Услуги и цены"
+          aria-label="Программы"
           className="hidden lg:flex lg:flex-col lg:gap-1"
         >
-          {mockPrograms.map((service, index) => {
-            const isActive = service.id === activeId;
+          {mockPrograms.map((program, index) => {
+            const isActive = program.id === activeId;
             return (
               <button
-                key={service.id}
+                key={program.id}
                 type="button"
                 role="tab"
-                id={`service-tab-${service.id}`}
+                id={`program-tab-${program.id}`}
                 aria-selected={isActive}
-                aria-controls={`service-panel-${service.id}`}
+                aria-controls={`program-panel-${program.id}`}
                 tabIndex={isActive ? 0 : -1}
-                onClick={() => selectService(service.id)}
+                onClick={() => selectProgram(program.id)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 className={`cursor-pointer rounded-xl px-5 py-4 text-left text-base leading-snug transition-colors ${
                   isActive
@@ -158,7 +162,7 @@ const Programs = () => {
                     : "text-ink/75 hover:bg-mist"
                 }`}
               >
-                {service.title}
+                {program.title}
               </button>
             );
           })}
@@ -169,40 +173,40 @@ const Programs = () => {
             ref={scrollRef}
             className="p-6 sm:p-8 lg:h-full lg:overflow-y-auto lg:p-10 lg:pb-16 lg:[scrollbar-color:var(--color-sage)_transparent] lg:[scrollbar-width:thin]"
           >
-            {mockPrograms.map((service) => (
+            {mockPrograms.map((program) => (
               <div
-                key={service.id}
+                key={program.id}
                 role="tabpanel"
-                id={`service-panel-${service.id}`}
-                aria-labelledby={`service-tab-${service.id}`}
-                hidden={service.id !== activeId}
+                id={`program-panel-${program.id}`}
+                aria-labelledby={`program-tab-${program.id}`}
+                hidden={program.id !== activeId}
                 tabIndex={0}
                 className="animate-fade-in"
               >
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <h3 className="max-w-[28ch] font-serif text-2xl font-semibold leading-tight lg:text-3xl">
-                    {service.title}
+                    {program.title}
                   </h3>
                 </div>
 
                 <div className="mt-6 max-w-[64ch] space-y-4 text-ink/85">
-                  {service.intro.map((paragraph, index) => (
+                  {program.intro.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
                   ))}
                 </div>
 
-                {service.note && (
+                {program.note && (
                   <p className="mt-6 max-w-[64ch] rounded-2xl border-l-4 border-sun bg-mist p-5 text-ink/90">
-                    {service.note}
+                    {program.note}
                   </p>
                 )}
 
                 <div
                   className={`mt-8 grid gap-8 ${
-                    service.lists.length > 1 ? "xl:grid-cols-2" : ""
+                    program.lists.length > 1 ? "xl:grid-cols-2" : ""
                   }`}
                 >
-                  {service.lists.map((list) => (
+                  {program.lists.map((list) => (
                     <div key={list.title}>
                       <h4 className="font-serif text-xl font-semibold">
                         {list.title}

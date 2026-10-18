@@ -6,7 +6,7 @@ import BurgerMenu from "./BurgerMenu";
 const NAV_ITEMS = [
   { id: "about", name: "Обо мне" },
   { id: "faq", name: "Частые вопросы" },
-  { id: "programs", name: "Программы" },
+  { id: "service", name: "Программы" },
   { id: "contacts", name: "Записаться" },
 ];
 
@@ -75,7 +75,7 @@ const Navbar = () => {
           <a
             href="#about"
             onClick={(e) => handleScroll(e, "about")}
-            className="font-display text-base font-semibold tracking-tight sm:text-lg"
+            className="text-base font-semibold tracking-tight sm:text-lg"
           >
             Нестерчук София
           </a>
@@ -123,7 +123,7 @@ const Navbar = () => {
                   className={
                     item.id === "contacts"
                       ? "flex h-14 items-center justify-center rounded-full bg-sun font-semibold text-ink"
-                      : "block py-4 font-display text-2xl font-medium"
+                      : "block py-4 text-2xl font-medium"
                   }
                 >
                   {item.name}

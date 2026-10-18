@@ -12,8 +12,12 @@ import SectionContainer from "@/components/SectionContainer";
 
 const Reviews = () => {
   return (
-    <SectionContainer tone="mist">
-      <SectionTitle title="Отзывы" className="mb-10 lg:mb-14" />
+    <SectionContainer id="reviews" tone="mist" labelledBy="reviews-title">
+      <SectionTitle
+        id="reviews-title"
+        title="Отзывы"
+        className="mb-10 lg:mb-14"
+      />
       <Swiper
         className="reviews-swiper"
         navigation
