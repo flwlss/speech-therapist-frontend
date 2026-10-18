@@ -8,7 +8,7 @@ import { PolicyItem } from "@/types/privacy";
 export const metadata: Metadata = {
   title: `${PRIVACY_TITLE} | Нестерчук София`,
   description:
-    "Политика в отношении обработки персональных данных. Оператор — Нестерчук София Александровна, медицинский логопед-афазиолог.",
+    "Политика в отношении обработки персональных данных. Оператор — Нестерчук София Александровна, медицинский логопед-афазиолог",
   alternates: { canonical: "/privacy" },
   openGraph: {
     type: "article",

@@ -9,6 +9,9 @@ export const SITE_URL = (
     : "http://localhost:3000")
 ).replace(/\/$/, "");
 
+const PHONE = "+79513774071";
+const EMAIL = "sonya.nesterchuk@bk.ru";
+
 export const SITE_TITLE = "Нестерчук София, медицинский логопед-афазиолог";
 
 export const SITE_DESCRIPTION =
@@ -46,6 +49,8 @@ export function buildJsonLd() {
     givenName: "София",
     familyName: "Нестерчук",
     jobTitle: "Медицинский логопед-афазиолог",
+    telephone: PHONE,
+    email: EMAIL,
     url: SITE_URL,
     image: `${SITE_URL}/sofianesterchuk.webp`,
     address: {
@@ -72,6 +77,8 @@ export function buildJsonLd() {
     name: SITE_TITLE,
     url: SITE_URL,
     image: `${SITE_URL}/sofianesterchuk.webp`,
+    telephone: PHONE,
+    email: EMAIL,
     provider: { "@id": `${SITE_URL}/#person` },
     areaServed: [
       { "@type": "Country", name: "Россия" },

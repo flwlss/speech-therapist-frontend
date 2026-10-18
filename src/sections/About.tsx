@@ -48,7 +48,7 @@ const About = () => {
               <strong className="font-semibold">
                 Нестерчук София Александровна
               </strong>
-              , медицинский логопед-афазиолог.
+              , медицинский логопед-афазиолог
             </h1>
             <div className="mt-8 space-y-5 text-lg text-ink/85">
               <p>
