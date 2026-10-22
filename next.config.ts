@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+import { createRequire } from "node:module";
+import path from "node:path";
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -10,12 +12,17 @@ const securityHeaders = [
   },
 ];
 
+const require = createRequire(import.meta.url);
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  output: "standalone",
+  outputFileTracingRoot: path.resolve(__dirname),
+  adapterPath: require.resolve("./yc-adapter.config.mjs"),
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Адрес Cloudflare Worker (без слэша в конце), через который идут запросы в Telegram.
+// Если TELEGRAM_API_BASE не задан, используется прямой адрес Telegram.
+const TELEGRAM_API_BASE = (
+  process.env.TELEGRAM_API_BASE || "https://api.telegram.org"
+).replace(/\/+$/, "");
+
 export async function POST(request: NextRequest) {
   try {
     const { name, phone } = await request.json();
@@ -29,7 +35,7 @@ export async function POST(request: NextRequest) {
 🕐 ${new Date().toLocaleString("ru-RU")}
     `;
 
-    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const telegramUrl = `${TELEGRAM_API_BASE}/bot${botToken}/sendMessage`;
 
     const response = await fetch(telegramUrl, {
       method: "POST",
