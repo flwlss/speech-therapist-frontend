@@ -17,7 +17,7 @@ export const privacySections: PolicySection[] = [
       },
       {
         number: "1.2.",
-        text: "Настоящая политика Оператора в отношении обработки персональных данных (далее — Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта https://logoped-nesterchuk.ru.",
+        text: "Настоящая политика Оператора в отношении обработки персональных данных (далее — Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта https://www.afaziolog-nesterchuk.ru/.",
       },
     ],
   },
@@ -42,7 +42,7 @@ export const privacySections: PolicySection[] = [
         number: "2.3.",
         term: "Веб-сайт",
         definition:
-          "совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу https://logoped-nesterchuk.ru.",
+          "совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу https://www.afaziolog-nesterchuk.ru/.",
       },
       {
         number: "2.4.",
@@ -72,7 +72,7 @@ export const privacySections: PolicySection[] = [
         number: "2.8.",
         term: "Персональные данные",
         definition:
-          "любая информация, относящаяся прямо или косвенно к определенному или определяемому Пользователю веб-сайта https://logoped-nesterchuk.ru.",
+          "любая информация, относящаяся прямо или косвенно к определенному или определяемому Пользователю веб-сайта https://www.afaziolog-nesterchuk.ru/.",
       },
       {
         number: "2.9.",
@@ -83,7 +83,8 @@ export const privacySections: PolicySection[] = [
       {
         number: "2.10.",
         term: "Пользователь",
-        definition: "любой посетитель веб-сайта https://logoped-nesterchuk.ru.",
+        definition:
+          "любой посетитель веб-сайта https://www.afaziolog-nesterchuk.ru/.",
       },
       {
         number: "2.11.",
@@ -219,7 +220,7 @@ export const privacySections: PolicySection[] = [
       },
       {
         label: "Персональные данные",
-        value: "фамилия, имя, отчество номера телефонов",
+        value: "фамилия, имя, отчество, номера телефонов",
       },
       {
         label: "Правовые основания",
@@ -367,7 +368,7 @@ export const privacySections: PolicySection[] = [
       },
       {
         number: "12.3.",
-        text: "Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу https://logoped-nesterchuk.ru/privacy.",
+        text: "Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу https://www.afaziolog-nesterchuk.ru/privacy.",
       },
     ],
   },
