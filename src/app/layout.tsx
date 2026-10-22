@@ -23,6 +23,7 @@ const literata = Literata({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   verification: {
+    google: "ePshjqKX4DGcDHSPsuzQETPfXP86W829nsMscDniZmk",
     yandex: "632054dfba294fd2",
   },
   title: SITE_TITLE,

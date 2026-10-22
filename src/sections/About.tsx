@@ -76,11 +76,7 @@ const About = () => {
               </p>
             </div>
             <a
-              onClick={() => {
-                document
-                  .getElementById("contacts")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
+              href="#contacts"
               className="mt-9 inline-flex h-14 items-center rounded-full bg-spruce px-8 font-medium text-white transition-colors hover:bg-spruce-dark cursor-pointer"
             >
               Записаться
