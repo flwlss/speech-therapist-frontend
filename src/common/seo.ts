@@ -53,6 +53,7 @@ export function buildJsonLd() {
     email: EMAIL,
     url: SITE_URL,
     image: `${SITE_URL}/sofianesterchuk.webp`,
+    knowsLanguage: "ru",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Новосибирск",
@@ -79,7 +80,7 @@ export function buildJsonLd() {
     image: `${SITE_URL}/sofianesterchuk.webp`,
     telephone: PHONE,
     email: EMAIL,
-    provider: { "@id": `${SITE_URL}/#person` },
+    founder: { "@id": `${SITE_URL}/#person` },
     areaServed: [
       { "@type": "Country", name: "Россия" },
       {
@@ -87,8 +88,6 @@ export function buildJsonLd() {
         name: "Русскоязычные пациенты по всему миру",
       },
     ],
-    serviceType: "Логопедическая помощь и реабилитация речи (онлайн)",
-    availableLanguage: "ru",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Программы",
@@ -98,6 +97,8 @@ export function buildJsonLd() {
           "@type": "Service",
           name: program.title,
           description: program.intro.join(" "),
+          serviceType: "Логопедическая помощь и реабилитация речи (онлайн)",
+          provider: { "@id": `${SITE_URL}/#person` },
         },
       })),
     },

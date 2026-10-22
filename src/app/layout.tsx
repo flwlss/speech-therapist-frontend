@@ -22,6 +22,9 @@ const literata = Literata({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  verification: {
+    yandex: "632054dfba294fd2",
+  },
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   keywords: SITE_KEYWORDS,
