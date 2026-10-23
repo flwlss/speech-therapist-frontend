@@ -95,7 +95,7 @@ const RequestForm = () => {
       <div className="space-y-4">
         <div>
           <label htmlFor="name" className="sr-only">
-            Ваше имя
+            Ваше ФИО
           </label>
           <input
             id="name"
@@ -104,7 +104,7 @@ const RequestForm = () => {
             required
             minLength={2}
             maxLength={50}
-            placeholder="Ваше имя"
+            placeholder="Ваше ФИО"
             disabled={isLoading}
             autoComplete="name"
             className={inputClass}
