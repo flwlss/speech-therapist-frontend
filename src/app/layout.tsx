@@ -8,6 +8,7 @@ import {
   SITE_TITLE,
   SITE_URL,
 } from "@/common/seo";
+import CookieNotice from "@/components/CookieNotice";
 
 const YANDEX_METRIKA_ID = 113751394;
 
@@ -97,6 +98,7 @@ export default function RootLayout({
           </div>
         </noscript>
         {children}
+        <CookieNotice />
       </body>
     </html>
   );

@@ -9,8 +9,8 @@ export const SITE_URL = (
     : "http://localhost:3000")
 ).replace(/\/$/, "");
 
-const PHONE = "+79513774071";
-const EMAIL = "sonya.nesterchuk@bk.ru";
+const PHONE = "+79133827164";
+const EMAIL = "nesterchuk.sofia@mail.ru";
 
 export const SITE_TITLE = "Нестерчук София, медицинский логопед-афазиолог";
 

@@ -34,24 +34,24 @@ const IconCircle = ({ children }: { children: ReactNode }) => (
 const Feedback = () => {
   return (
     <address className="grid justify-items-start gap-3 not-italic">
-      <a href="tel:+79513774071" className="group flex items-center gap-3">
+      <a href="tel:+79133827164" className="group flex items-center gap-3">
         <IconCircle>
           <PhoneIcon />
         </IconCircle>
         <span className="min-w-0 font-serif text-[1.375rem] font-medium underline-offset-4 [overflow-wrap:anywhere] group-hover:underline lg:text-2xl">
-          +7 (951) 377-40-71
+          +7 (913) 382-71-64
         </span>
       </a>
 
       <a
-        href="mailto:sonya.nesterchuk@bk.ru"
+        href="mailto:nesterchuk.sofia@mail.ru"
         className="group flex items-center gap-3"
       >
         <IconCircle>
           <MailIcon />
         </IconCircle>
         <span className="min-w-0 text-lg underline-offset-4 [overflow-wrap:anywhere] group-hover:underline lg:text-xl">
-          sonya.nesterchuk@bk.ru
+          nesterchuk.sofia@mail.ru
         </span>
       </a>
 
@@ -72,7 +72,7 @@ const Feedback = () => {
           />
         </a>
         <a
-          href="https://t.me/+79513774071"
+          href="https://t.me/+79133827164"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Мессенджер Телеграм"
